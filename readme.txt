@@ -1,0 +1,2 @@
+NSLog format:
+ @"controllername: statement"

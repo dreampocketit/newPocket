@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>C1FE3F31-DFD7-459F-9AE4-6D3399650755</string>
+	<key>IDESourceControlProjectName</key>
+	<string>newPocket</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>74236BD7-2289-4562-A5A8-F3A4DDECF05C</key>
+		<string>https://github.com/changchengtu/newPocket.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>newPocket.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>74236BD7-2289-4562-A5A8-F3A4DDECF05C</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/changchengtu/newPocket.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>74236BD7-2289-4562-A5A8-F3A4DDECF05C</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>74236BD7-2289-4562-A5A8-F3A4DDECF05C</string>
+			<key>IDESourceControlWCCName</key>
+			<string>newPocket</string>
+		</dict>
+	</array>
+</dict>
+</plist>
