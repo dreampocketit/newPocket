@@ -8,13 +8,15 @@
 
 #import "ViewController.h"
 #import "AppDelegate.h"
+#import <DropboxSDK/DropboxSDK.h>
 
-@interface PocketController : ViewController
+@interface PocketController : ViewController <DBRestClientDelegate>
 {
     NSMutableArray *journeyList;
     NSMutableDictionary *passJourney;
     NSMutableDictionary *journeyInfoDict;
     sqlite3 *db;
+    DBRestClient *restClient;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 

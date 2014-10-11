@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <sqlite3.h>
+#import <DropboxSDK/DropboxSDK.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 {

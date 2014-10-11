@@ -22,6 +22,19 @@
     player = [[AVAudioPlayer alloc] initWithContentsOfURL:audio_url error:nil];
     [player setDelegate:self];
     [player play];
+    
+    //get path and filename
+    NSString *thumbnail = [[mediaList objectAtIndex:indexPath.row] objectForKey:@"thumbnail_path"];
+    NSString* theFileName = [thumbnail lastPathComponent];
+    NSLog(theFileName);
+    
+    //upload
+    NSString *localPath = [[NSBundle mainBundle] pathForResource:@"InfoPlist" ofType:@"strings"];
+    NSString *filename = @"InfoPlist.strings";
+    NSString *destDir = @"/";
+    NSLog(localPath);
+    [[self restClient] uploadFile:filename toPath:destDir withParentRev:nil fromPath:localPath];
+    
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -194,6 +207,33 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (DBRestClient *)restClient {
+    if (!restClient) {
+        restClient = [[DBRestClient alloc] initWithSession:[DBSession sharedSession]];
+        restClient.delegate = self;
+    }
+    return restClient;
+}
+
+- (void)restClient:(DBRestClient*)client uploadedFile:(NSString*)destPath
+              from:(NSString*)srcPath metadata:(DBMetadata*)metadata
+{
+    // 上傳成功後會呼叫此方法
+    NSLog(@"檔案成功的上傳到此路徑: %@", metadata.path);
+}
+
+- (void)restClient:(DBRestClient*)client uploadFileFailedWithError:(NSError*)error
+{
+    // 上傳失敗後會呼叫此方法
+    NSLog(@"檔案上傳失敗 - %@", error);
+}
+
+-(void)restClient:(DBRestClient *)client uploadProgress:(CGFloat)progress forFile:(NSString *)destPath from:(NSString *)srcPath
+{
+    // 取得上傳進度
+    self.uploadProgress.progress = progress;
 }
 
 /*

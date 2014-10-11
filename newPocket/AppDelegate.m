@@ -9,6 +9,23 @@
 #import "AppDelegate.h"
 
 @implementation AppDelegate
+// 認證程序錯誤
+-(void)sessionDidReceiveAuthorizationFailure:(DBSession *)session userId:(NSString *)userId
+{
+    NSLog(@"dropbox 認證錯誤");
+}
+
+// 開啓登入驗證程序畫面後控制權必須再回到我們的App畫面
+-(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    if ([[DBSession sharedSession] handleOpenURL:url]) {
+        if ([[DBSession sharedSession] isLinked]) {
+            NSLog(@"App linked successfully!");
+        }
+        return YES;
+    }
+    return NO;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -34,6 +51,11 @@
         db = nil;
         NSLog(@"資料庫連線失敗");
     }
+    
+    DBSession *session = [[DBSession alloc] initWithAppKey:@"beerudcoythkc6a" appSecret:@"9a0rdihso6dg4oi" root:kDBRootAppFolder];
+    session.delegate = self;
+    [DBSession setSharedSession:session];
+    
     return YES;
 }
 

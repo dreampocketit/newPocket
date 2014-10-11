@@ -11,12 +11,17 @@
 #import "AppDelegate.h"
 #import <AVFoundation/AVFoundation.h>
 
-@interface TimelineController : ViewController
+@interface TimelineController : ViewController <DBRestClientDelegate>
 {
     NSMutableArray *mediaList;
     UIImageView *media;
     int rowNo;
     AVAudioPlayer *player;
+    DBRestClient *restClient;
 }
+
+@property (weak, nonatomic) IBOutlet UIProgressView *uploadProgress;
+
+- (DBRestClient *)restClient;
 
 @end

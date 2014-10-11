@@ -9,6 +9,7 @@
 #import "PocketController.h"
 #import "JourneyController.h"
 
+
 @interface PocketController ()
 
 @end
@@ -23,6 +24,15 @@
         // Custom initialization
     }
     return self;
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    // 啓動Dropbox登入驗證程序
+    NSLog(@"start");
+    if (![[DBSession sharedSession] isLinked]) {
+        [[DBSession sharedSession] linkFromController:self];
+    }
 }
 
 - (void)viewDidLoad
