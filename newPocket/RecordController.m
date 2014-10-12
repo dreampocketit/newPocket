@@ -260,6 +260,48 @@
     
 }
 
+- (IBAction)selfie:(id)sender
+{
+    //Change camera source
+    if(session)
+    {
+        //Indicate that some changes will be made to the session
+        [session beginConfiguration];
+        
+        //Remove existing input
+        AVCaptureInput* currentCameraInput = [session.inputs objectAtIndex:0];
+        [session removeInput:currentCameraInput];
+        
+        //Get new input
+        AVCaptureDevice *newCamera = nil;
+        if(((AVCaptureDeviceInput*)currentCameraInput).device.position == AVCaptureDevicePositionBack)
+        {
+            newCamera = [self cameraWithPosition:AVCaptureDevicePositionFront];
+        }
+        else
+        {
+            newCamera = [self cameraWithPosition:AVCaptureDevicePositionBack];
+        }
+        
+        //Add input to session
+        AVCaptureDeviceInput *newVideoInput = [[AVCaptureDeviceInput alloc] initWithDevice:newCamera error:nil];
+        [session addInput:newVideoInput];
+        
+        //Commit all the configuration changes at once
+        [session commitConfiguration];
+    }}
+
+// Find a camera with the specified AVCaptureDevicePosition, returning nil if one is not found
+- (AVCaptureDevice *) cameraWithPosition:(AVCaptureDevicePosition) position
+{
+    NSArray *devices = [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo];
+    for (AVCaptureDevice *device in devices)
+    {
+        if ([device position] == position) return device;
+    }
+    return nil;
+}
+
 - (IBAction)retake:(id)sender
 {
     [session startRunning];

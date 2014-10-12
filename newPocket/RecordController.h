@@ -22,6 +22,8 @@
     NSString *audioName;
 }
 
+- (IBAction)selfie:(id)sender;
+
 @property (weak, nonatomic) IBOutlet UIView *frameForCapture;
 
 - (IBAction)takePhoto:(id)sender;
