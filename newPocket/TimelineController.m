@@ -27,13 +27,12 @@
     NSString *thumbnail = [[mediaList objectAtIndex:indexPath.row] objectForKey:@"thumbnail_path"];
     NSString* theFileName = [thumbnail lastPathComponent];
     NSLog(theFileName);
+    NSString *path = [thumbnail stringByReplacingOccurrencesOfString:theFileName
+                                         withString:@""];
     
-    //upload
-    NSString *localPath = [[NSBundle mainBundle] pathForResource:@"InfoPlist" ofType:@"strings"];
-    NSString *filename = @"InfoPlist.strings";
+    //upload the file to dropbox
     NSString *destDir = @"/";
-    NSLog(localPath);
-    [[self restClient] uploadFile:filename toPath:destDir withParentRev:nil fromPath:localPath];
+    [[self restClient] uploadFile:theFileName toPath:destDir withParentRev:nil fromPath:thumbnail];
     
 }
 
@@ -187,10 +186,12 @@
             char *time = (char *)sqlite3_column_text(statement, 3);
             //char *location = (char *)sqlite3_column_text(statement, 4);
             char *audio_path = (char *)sqlite3_column_text(statement, 4);
+            char *original_path = (char *)sqlite3_column_text(statement, 5);
             char *thumbnail_path = (char *)sqlite3_column_text(statement, 6);
             
             NSMutableDictionary *mediaInfo = [[NSMutableDictionary alloc] init];
             [mediaInfo setObject:[NSString stringWithFormat:@"%s", thumbnail_path, nil] forKey:@"thumbnail_path"];
+            [mediaInfo setObject:[NSString stringWithFormat:@"%s", original_path, nil] forKey:@"original_path"];
             [mediaInfo setObject:[NSString stringWithFormat:@"%s", audio_path, nil] forKey:@"audio_path"];
             [mediaInfo setObject:[NSString stringWithFormat:@"%s", time, nil] forKey:@"title"];
             [mediaList addObject:mediaInfo];

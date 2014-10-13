@@ -409,7 +409,7 @@
               
               
               if (db != nil) {
-                  // 準備好查詢的SQL command
+                  // insert SQL command
                   NSString *queryString = [NSString stringWithFormat:@"insert into medias values(NULL, NULL, 'picture', '2014-01-01 10:00:00', '%@', '%@', '%@', NULL, 1)", audiopath, [asset valueForProperty:ALAssetPropertyAssetURL], filePath];
                   const char *sql = [queryString UTF8String];
                   
