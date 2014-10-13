@@ -32,6 +32,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view.
     //self.showMedia.contentMode = UIViewContentModeScaleToFill;
     [self startCamera];
@@ -152,12 +153,16 @@
 }
 */
 
+//start a camera
 - (void)startCamera
 {
     session = [[AVCaptureSession alloc] init];
     [session setSessionPreset:AVCaptureSessionPresetPhoto];
     
     AVCaptureDevice *inputDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+    
+    
+    
     NSError *error;
     AVCaptureDeviceInput *deviceInput = [AVCaptureDeviceInput deviceInputWithDevice:inputDevice error:&error];
     
@@ -184,6 +189,7 @@
     
 }
 
+//voicerecording function
 - (void)startVoiceRecod
 {
     // Set the audio file
@@ -222,6 +228,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+//take photo function
 - (IBAction)takePhoto:(id)sender
 {
     AVCaptureConnection *videoConnection = nil;
@@ -260,6 +267,8 @@
     
 }
 
+
+//selfie function
 - (IBAction)selfie:(id)sender
 {
     //Change camera source
@@ -289,7 +298,8 @@
         
         //Commit all the configuration changes at once
         [session commitConfiguration];
-    }}
+    }
+}
 
 // Find a camera with the specified AVCaptureDevicePosition, returning nil if one is not found
 - (AVCaptureDevice *) cameraWithPosition:(AVCaptureDevicePosition) position

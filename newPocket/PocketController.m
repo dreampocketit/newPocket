@@ -30,9 +30,9 @@
 {
     // 啓動Dropbox登入驗證程序
     NSLog(@"start");
-    if (![[DBSession sharedSession] isLinked]) {
-        [[DBSession sharedSession] linkFromController:self];
-    }
+    //if (![[DBSession sharedSession] isLinked]) {
+    //    [[DBSession sharedSession] linkFromController:self];
+    //}
 }
 
 - (void)viewDidLoad

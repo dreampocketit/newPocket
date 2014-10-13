@@ -20,6 +20,15 @@
 	<string>1.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>db-beerudcoythkc6a</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
 	<key>LSRequiresIPhoneOS</key>
@@ -45,15 +54,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	    <key>CFBundleURLTypes</key>
-    	<array>
-        	<dict>
-            		<key>CFBundleURLSchemes</key>
-            		<array>
-                		<string>db-beerudcoythkc6a</string>
-            		</array>
-        	</dict>
-    	</array>
-	
 </dict>
 </plist>
