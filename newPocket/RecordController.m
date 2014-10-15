@@ -202,7 +202,7 @@
                                nil];
     NSURL *outputFileURL = [NSURL fileURLWithPathComponents:pathComponents];
     
-    NSLog(@"%@",pathComponents);
+    //NSLog(@"%@",pathComponents);
     
     // Setup audio session
     AVAudioSession *session = [AVAudioSession sharedInstance];
@@ -448,7 +448,7 @@
      }];
     
     
-    [self showFile];
+    //[self showFile];
     
 }
 

@@ -20,7 +20,7 @@
 {
     NSString *audioString = [[mediaList objectAtIndex:indexPath.row] objectForKey:@"audio_path"];
     NSURL * audio_url = [NSURL URLWithString:audioString];
-    NSLog(@"%@", audio_url);
+    //NSLog(@"%@", audio_url);
     player = [[AVAudioPlayer alloc] initWithContentsOfURL:audio_url error:nil];
     [player setDelegate:self];
     [player play];
@@ -34,58 +34,58 @@
     NSString *original_path = [[mediaList objectAtIndex:indexPath.row] objectForKey:@"original_path"];
     NSLog(original_path);
     
+    //upload picture to Dropbox
+    [self uploadToDropbox:[[mediaList objectAtIndex:indexPath.row] objectForKey:@"original_path"]];
     
+    //[self showFile];
+   
     
-    ////////////////////
-    
+}
+
+-(void)uploadToDropbox:(NSString *)url
+{
     //upload the file to dropbox
     NSString *destDir = @"/";
-    /*
-    [[self restClient] uploadFile:@"asd.jpg" toPath:destDir withParentRev:nil fromPath:thumbnail];
-    */
     
-    //test original
+    //locate original picture path
     ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
-    ALAsset *assetURL=[NSURL URLWithString:[[mediaList objectAtIndex:indexPath.row] objectForKey:@"original_path"]];
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsPath = [paths objectAtIndex:0]; //Get the docs directory
+    ALAsset *assetURL=[NSURL URLWithString:url];
+    
+    
     [library assetForURL:assetURL resultBlock:^(ALAsset *asset )
      {
-         NSLog(@"Timelinecontroller: ALAsset located!");
+         NSLog(@"Timelinecontroller: Original picture ALAsset located!");
          ALAssetRepresentation *rep = [asset defaultRepresentation];
          CGImageRef iref = [rep fullResolutionImage];
          if (iref) {
-             UIImage *original = [UIImage imageWithCGImage:iref]; //the image should be compress or memroy warning
-             //test.image = original;
              
-             // save thumbnail image to document
+             //get original picture
+             UIImage *original = [UIImage imageWithCGImage:iref];
+             
+             //Get the docs directory
              NSData *originalData = UIImagePNGRepresentation(original);
              NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-             NSString *documentsPath = [paths objectAtIndex:0]; //Get the docs directory
+             NSString *documentsPath = [paths objectAtIndex:0];
              
-             // name originalpicture
+             // name original picture
              NSDateFormatter *DateFormatter=[[NSDateFormatter alloc] init];
-             NSString *thumbnailName = @"chosedFile.jpg";
-             NSString *filePath = [documentsPath stringByAppendingPathComponent:thumbnailName];
+             NSString *fileName = @"chosedFile.jpg";
+             NSString *filePath = [documentsPath stringByAppendingPathComponent:fileName];
              
-             // save thu
+             NSLog(@"Timelinecontroller: write a tmp original picture file");
+             // save original picture
              [originalData writeToFile:filePath atomically:YES];
              
-             [[self restClient] uploadFile:thumbnailName toPath:destDir withParentRev:nil fromPath:filePath];
-             
-             
-             
+             //upload picture
+             NSLog(@"Timelinecontroller: start to upload original picture");
+             [[self restClient] uploadFile:fileName toPath:destDir withParentRev:nil fromPath:filePath];
              
              
          }
      } failureBlock:^(NSError *error )
      {
-         NSLog(@"Error loading asset");
+         NSLog(@"Timelinecontroller: Error loading asset");
      }];
-    
-    [self showFile];
-    ///////////////
-    
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -170,30 +170,6 @@
     
     [self loadMediaFromDB];
     
-    /*
-    // please load camera here
-    // init 4 medias and save to mediaList for later presenting in cell
-    NSMutableDictionary *mediaInfo1 = [[NSMutableDictionary alloc] init];
-    [mediaInfo1 setObject:@"sample1.jpg" forKey:@"path"];
-    [mediaInfo1 setObject:@"3/23 7pm at Taoyuan Taiwan" forKey:@"title"];
-    [mediaList addObject:mediaInfo1];
-    
-    NSMutableDictionary *mediaInfo2 = [[NSMutableDictionary alloc] init];
-    [mediaInfo2 setObject:@"sample2.jpg" forKey:@"path"];
-    [mediaInfo2 setObject:@"3/23 10pm at Hsinchu Taiwan" forKey:@"title"];
-    [mediaList addObject:mediaInfo2];
-    
-    NSMutableDictionary *mediaInfo3 = [[NSMutableDictionary alloc] init];
-    [mediaInfo3 setObject:@"sample3.jpg" forKey:@"path"];
-    [mediaInfo3 setObject:@"3/24 8am at Hsinchu Taiwan" forKey:@"title"];
-    [mediaList addObject:mediaInfo3];
-    
-    NSMutableDictionary *mediaInfo4 = [[NSMutableDictionary alloc] init];
-    [mediaInfo4 setObject:@"sample4.jpg" forKey:@"path"];
-    [mediaInfo4 setObject:@"3/24 1pm at Taiper Taiwan" forKey:@"title"];
-    [mediaList addObject:mediaInfo4];
-    */
-    
 }
 
 -(void)ReloadMediaFunction:(NSNotification *)notification {
@@ -218,7 +194,6 @@
 - (void)loadMediaFromDB
 {
     
-    mediaList = [[NSMutableArray alloc] init];
     // 取得已開啓的資料庫連線變數
     AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     sqlite3 *db = [delegate getDB];
@@ -232,6 +207,8 @@
         // 執行
         sqlite3_prepare(db, sql, -1, &statement, NULL);
         // statement用來儲存執行結果
+        
+        mediaList = [[NSMutableArray alloc] init];
         
         while (sqlite3_step(statement) == SQLITE_ROW) {
             
@@ -252,8 +229,11 @@
         
         sqlite3_finalize(statement);
     }
+    /*
+    NSLog(@"################################");
     NSLog(@"%@", mediaList);
-
+    NSLog(@"################################");
+     */
 }
 
 - (void)didReceiveMemoryWarning
