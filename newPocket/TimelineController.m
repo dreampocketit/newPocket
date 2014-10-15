@@ -13,6 +13,8 @@
 @end
 
 @implementation TimelineController
+//@synthesize test;
+
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -29,10 +31,60 @@
     NSLog(theFileName);
     NSString *path = [thumbnail stringByReplacingOccurrencesOfString:theFileName
                                          withString:@""];
+    NSString *original_path = [[mediaList objectAtIndex:indexPath.row] objectForKey:@"original_path"];
+    NSLog(original_path);
+    
+    
+    
+    ////////////////////
     
     //upload the file to dropbox
     NSString *destDir = @"/";
-    [[self restClient] uploadFile:theFileName toPath:destDir withParentRev:nil fromPath:thumbnail];
+    /*
+    [[self restClient] uploadFile:@"asd.jpg" toPath:destDir withParentRev:nil fromPath:thumbnail];
+    */
+    
+    //test original
+    ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+    ALAsset *assetURL=[NSURL URLWithString:[[mediaList objectAtIndex:indexPath.row] objectForKey:@"original_path"]];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsPath = [paths objectAtIndex:0]; //Get the docs directory
+    [library assetForURL:assetURL resultBlock:^(ALAsset *asset )
+     {
+         NSLog(@"Timelinecontroller: ALAsset located!");
+         ALAssetRepresentation *rep = [asset defaultRepresentation];
+         CGImageRef iref = [rep fullResolutionImage];
+         if (iref) {
+             UIImage *original = [UIImage imageWithCGImage:iref]; //the image should be compress or memroy warning
+             //test.image = original;
+             
+             // save thumbnail image to document
+             NSData *originalData = UIImagePNGRepresentation(original);
+             NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+             NSString *documentsPath = [paths objectAtIndex:0]; //Get the docs directory
+             
+             // name originalpicture
+             NSDateFormatter *DateFormatter=[[NSDateFormatter alloc] init];
+             NSString *thumbnailName = @"chosedFile.jpg";
+             NSString *filePath = [documentsPath stringByAppendingPathComponent:thumbnailName];
+             
+             // save thu
+             [originalData writeToFile:filePath atomically:YES];
+             
+             [[self restClient] uploadFile:thumbnailName toPath:destDir withParentRev:nil fromPath:filePath];
+             
+             
+             
+             
+             
+         }
+     } failureBlock:^(NSError *error )
+     {
+         NSLog(@"Error loading asset");
+     }];
+    
+    [self showFile];
+    ///////////////
     
 }
 
@@ -236,6 +288,34 @@
     // 取得上傳進度
     self.uploadProgress.progress = progress;
 }
+
+- (void)showFile
+{
+    NSFileManager *fm = [NSFileManager defaultManager];
+    NSArray *arr = [fm URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];
+    NSURL *url = arr[0];
+    
+    // includingPropertiesForKey: 表示要列出具備哪些屬性的檔案，nil表示所有屬性都要的意思
+    // option: 目前可以使用的參數是 NSDirectoryEnumerationSkipsHiddenFiles 代表不要列出隱藏檔
+    //         如果要連隱藏檔都列出，則使用 ~NSDirectoryEnumerationSkipsHiddenFiles
+    //         UNIX 的隱藏檔是以「.」開頭的檔案
+    NSArray *fileList = [fm contentsOfDirectoryAtURL:url
+                          includingPropertiesForKeys:nil
+                                             options:NSDirectoryEnumerationSkipsHiddenFiles
+                                               error:nil
+                         ];
+    
+    BOOL isDir;
+    for (NSURL *p in fileList) {
+        // NSURL 類別包含了檔案的絕對路徑（以URI的格式呈現）
+        // .lastPathComponent 則是URI中檔名的部分
+        if ([fm fileExistsAtPath:p.path isDirectory:&isDir] && isDir)
+            NSLog(@"%@ 是目錄.", p.lastPathComponent);
+        else
+            NSLog(@"%@ 是檔案.", p.lastPathComponent);
+    }
+}
+
 
 /*
 #pragma mark - Navigation

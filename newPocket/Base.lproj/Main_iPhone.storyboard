@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="RwS-Zp-Y1d">
     <dependencies>
+        <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
@@ -70,7 +71,7 @@
                     <navigationItem key="navigationItem" title="Pocket" id="6a2-zv-6fb"/>
                     <connections>
                         <outlet property="tableView" destination="Gzr-Pw-P26" id="AQe-5w-uSF"/>
-                        <segue destination="BE6-sG-zOT" kind="push" identifier="showJourney" id="xof-Bu-oJg"/>
+                        <segue destination="BE6-sG-zOT" kind="custom" identifier="showJourney" id="xof-Bu-oJg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -164,7 +165,7 @@
                         <viewControllerLayoutGuide type="bottom" id="w78-jE-OO7"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="xzi-1V-2Of">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KYD-50-NeU">
@@ -276,7 +277,7 @@
                         <viewControllerLayoutGuide type="bottom" id="1Xq-Na-Mg3"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="XXd-9o-gkV">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" indicatorStyle="white" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="205" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="RmZ-kX-RKj">

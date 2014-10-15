@@ -32,10 +32,6 @@
 		6A6369FA19B8468400BFC695 /* pocket.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 6A6369F919B8468400BFC695 /* pocket.sqlite */; };
 		6A9BD2F719B40AE000354B28 /* NewJourneyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A9BD2F619B40AE000354B28 /* NewJourneyController.m */; };
 		6AB0BC7F19B6B241008B538B /* RecordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AB0BC7E19B6B241008B538B /* RecordController.m */; };
-		6ADF8EB719B617F000758A31 /* sample1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6ADF8EB319B617F000758A31 /* sample1.jpg */; };
-		6ADF8EB819B617F000758A31 /* sample2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6ADF8EB419B617F000758A31 /* sample2.jpg */; };
-		6ADF8EB919B617F000758A31 /* sample3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6ADF8EB519B617F000758A31 /* sample3.jpg */; };
-		6ADF8EBA19B617F000758A31 /* sample4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6ADF8EB619B617F000758A31 /* sample4.jpg */; };
 		DF8FB8BF19EC223A00F3154E /* Main_iPhone_4inch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF8FB8BD19EC223A00F3154E /* Main_iPhone_4inch.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -85,10 +81,6 @@
 		6A9BD2F619B40AE000354B28 /* NewJourneyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewJourneyController.m; sourceTree = "<group>"; };
 		6AB0BC7D19B6B241008B538B /* RecordController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordController.h; sourceTree = "<group>"; };
 		6AB0BC7E19B6B241008B538B /* RecordController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordController.m; sourceTree = "<group>"; };
-		6ADF8EB319B617F000758A31 /* sample1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sample1.jpg; sourceTree = "<group>"; };
-		6ADF8EB419B617F000758A31 /* sample2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sample2.jpg; sourceTree = "<group>"; };
-		6ADF8EB519B617F000758A31 /* sample3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sample3.jpg; sourceTree = "<group>"; };
-		6ADF8EB619B617F000758A31 /* sample4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sample4.jpg; sourceTree = "<group>"; };
 		DF8FB8BE19EC223A00F3154E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone_4inch.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -156,10 +148,6 @@
 		6A115F9019B3444F00815C2A /* newPocket */ = {
 			isa = PBXGroup;
 			children = (
-				6ADF8EB319B617F000758A31 /* sample1.jpg */,
-				6ADF8EB419B617F000758A31 /* sample2.jpg */,
-				6ADF8EB519B617F000758A31 /* sample3.jpg */,
-				6ADF8EB619B617F000758A31 /* sample4.jpg */,
 				6A115F9919B3444F00815C2A /* AppDelegate.h */,
 				6A115F9A19B3444F00815C2A /* AppDelegate.m */,
 				6A115F9C19B3444F00815C2A /* Main_iPhone.storyboard */,
@@ -294,12 +282,8 @@
 				6A115FA619B3444F00815C2A /* Images.xcassets in Resources */,
 				6A115F9E19B3444F00815C2A /* Main_iPhone.storyboard in Resources */,
 				6A115F9519B3444F00815C2A /* InfoPlist.strings in Resources */,
-				6ADF8EB719B617F000758A31 /* sample1.jpg in Resources */,
 				DF8FB8BF19EC223A00F3154E /* Main_iPhone_4inch.storyboard in Resources */,
 				6A6369FA19B8468400BFC695 /* pocket.sqlite in Resources */,
-				6ADF8EB819B617F000758A31 /* sample2.jpg in Resources */,
-				6ADF8EB919B617F000758A31 /* sample3.jpg in Resources */,
-				6ADF8EBA19B617F000758A31 /* sample4.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

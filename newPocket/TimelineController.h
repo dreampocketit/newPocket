@@ -21,6 +21,7 @@
 }
 
 @property (weak, nonatomic) IBOutlet UIProgressView *uploadProgress;
+//@property (weak, nonatomic) IBOutlet UIImageView *test;
 
 - (DBRestClient *)restClient;
 
