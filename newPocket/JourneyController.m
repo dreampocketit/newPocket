@@ -25,8 +25,13 @@
     return self;
 }
 
+
 - (void)viewDidLoad
 {
+    //[[UINavigationBar appearance] setBarTintColor:[UIColor redColor]];
+    //self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"navigationbar.png"]];
+    //UIBarButtonItem * item = [[UIBarButtonItem alloc] initWithCustomView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"navigationbar.jpg"]]];
+    //self.navigationItem.rightBarButtonItem = item;
     NSNumber *traveling = [receiveJourney objectForKey:@"onGoing"];
     NSInteger travelingCheck = [traveling integerValue];
     
