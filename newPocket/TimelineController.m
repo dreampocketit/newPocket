@@ -35,11 +35,27 @@
     NSLog(original_path);
     
     //upload picture to Dropbox
-    [self uploadToDropbox:[[mediaList objectAtIndex:indexPath.row] objectForKey:@"original_path"]];
+    //[self uploadToDropbox:[[mediaList objectAtIndex:indexPath.row] objectForKey:@"original_path"]];
+    
+    //testupload
+    [self testUpload:[[mediaList objectAtIndex:indexPath.row] objectForKey:@"thumbnail_path"]];
     
     //[self showFile];
    
     
+}
+
+-(void)testUpload:(NSString *)thumbnail
+{
+
+    NSString* theFileName = [thumbnail lastPathComponent];
+    NSLog(theFileName);
+    NSString *path = [thumbnail stringByReplacingOccurrencesOfString:theFileName
+                                                          withString:@""];
+    
+    //upload the file to dropbox
+    NSString *destDir = @"/";
+    [[self restClient] uploadFile:theFileName toPath:destDir withParentRev:nil fromPath:thumbnail];
 }
 
 -(void)uploadToDropbox:(NSString *)url

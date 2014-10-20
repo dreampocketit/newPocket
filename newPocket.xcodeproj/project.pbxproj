@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6A06EBF319F5255500ECE07D /* pocket.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 6A06EBF219F5255500ECE07D /* pocket.sqlite */; };
 		6A115F8B19B3444F00815C2A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A115F8A19B3444F00815C2A /* Foundation.framework */; };
 		6A115F8D19B3444F00815C2A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A115F8C19B3444F00815C2A /* CoreGraphics.framework */; };
 		6A115F8F19B3444F00815C2A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A115F8E19B3444F00815C2A /* UIKit.framework */; };
@@ -25,11 +26,13 @@
 		6A115FC419B344B700815C2A /* PocketController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A115FC319B344B700815C2A /* PocketController.m */; };
 		6A115FC719B3464C00815C2A /* JourneyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A115FC619B3464C00815C2A /* JourneyController.m */; };
 		6A115FCB19B35D3C00815C2A /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A115FCA19B35D3C00815C2A /* libsqlite3.dylib */; };
+		6A2985E319F5166900C45DC6 /* Images-2.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A2985E219F5166900C45DC6 /* Images-2.xcassets */; };
+		6A2985E519F516B300C45DC6 /* AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A2985E419F516B300C45DC6 /* AppIcon.png */; };
+		6A2985E719F51C0100C45DC6 /* cover.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6A2985E619F51C0000C45DC6 /* cover.jpg */; };
 		6A528FE819B5D0F800D7853B /* TimelineController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A528FE719B5D0F800D7853B /* TimelineController.m */; };
 		6A5DCCEF19E8BEBE006E004C /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A5DCCEE19E8BEBE006E004C /* DropboxSDK.framework */; };
 		6A5DCCF119E8BEE4006E004C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A5DCCF019E8BEE4006E004C /* QuartzCore.framework */; };
 		6A5DCCF319E8BEF0006E004C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A5DCCF219E8BEF0006E004C /* Security.framework */; };
-		6A6369FA19B8468400BFC695 /* pocket.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 6A6369F919B8468400BFC695 /* pocket.sqlite */; };
 		6A9BD2F719B40AE000354B28 /* NewJourneyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A9BD2F619B40AE000354B28 /* NewJourneyController.m */; };
 		6AB0BC7F19B6B241008B538B /* RecordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AB0BC7E19B6B241008B538B /* RecordController.m */; };
 		DF8FB8BF19EC223A00F3154E /* Main_iPhone_4inch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF8FB8BD19EC223A00F3154E /* Main_iPhone_4inch.storyboard */; };
@@ -46,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6A06EBF219F5255500ECE07D /* pocket.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = pocket.sqlite; sourceTree = "<group>"; };
 		6A115F8719B3444F00815C2A /* newPocket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = newPocket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A115F8A19B3444F00815C2A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6A115F8C19B3444F00815C2A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -71,12 +75,14 @@
 		6A115FC519B3464C00815C2A /* JourneyController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JourneyController.h; sourceTree = "<group>"; };
 		6A115FC619B3464C00815C2A /* JourneyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JourneyController.m; sourceTree = "<group>"; };
 		6A115FCA19B35D3C00815C2A /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		6A2985E219F5166900C45DC6 /* Images-2.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Images-2.xcassets"; sourceTree = "<group>"; };
+		6A2985E419F516B300C45DC6 /* AppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon.png; sourceTree = "<group>"; };
+		6A2985E619F51C0000C45DC6 /* cover.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cover.jpg; sourceTree = "<group>"; };
 		6A528FE619B5D0F700D7853B /* TimelineController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineController.h; sourceTree = "<group>"; };
 		6A528FE719B5D0F800D7853B /* TimelineController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineController.m; sourceTree = "<group>"; };
 		6A5DCCEE19E8BEBE006E004C /* DropboxSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DropboxSDK.framework; sourceTree = "<group>"; };
 		6A5DCCF019E8BEE4006E004C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		6A5DCCF219E8BEF0006E004C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		6A6369F919B8468400BFC695 /* pocket.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = pocket.sqlite; sourceTree = "<group>"; };
 		6A9BD2F519B40AE000354B28 /* NewJourneyController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewJourneyController.h; sourceTree = "<group>"; };
 		6A9BD2F619B40AE000354B28 /* NewJourneyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewJourneyController.m; sourceTree = "<group>"; };
 		6AB0BC7D19B6B241008B538B /* RecordController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordController.h; sourceTree = "<group>"; };
@@ -150,6 +156,7 @@
 			children = (
 				6A115F9919B3444F00815C2A /* AppDelegate.h */,
 				6A115F9A19B3444F00815C2A /* AppDelegate.m */,
+				6A2985E619F51C0000C45DC6 /* cover.jpg */,
 				6A115F9C19B3444F00815C2A /* Main_iPhone.storyboard */,
 				DF8FB8BD19EC223A00F3154E /* Main_iPhone_4inch.storyboard */,
 				6A115F9F19B3444F00815C2A /* Main_iPad.storyboard */,
@@ -164,8 +171,10 @@
 				6A115FC519B3464C00815C2A /* JourneyController.h */,
 				6A115FC619B3464C00815C2A /* JourneyController.m */,
 				6A115FA219B3444F00815C2A /* ViewController.h */,
+				6A2985E419F516B300C45DC6 /* AppIcon.png */,
 				6A115FA319B3444F00815C2A /* ViewController.m */,
 				6A115FA519B3444F00815C2A /* Images.xcassets */,
+				6A2985E219F5166900C45DC6 /* Images-2.xcassets */,
 				6A115F9119B3444F00815C2A /* Supporting Files */,
 			);
 			path = newPocket;
@@ -175,8 +184,8 @@
 			isa = PBXGroup;
 			children = (
 				6A5DCCEE19E8BEBE006E004C /* DropboxSDK.framework */,
-				6A6369F919B8468400BFC695 /* pocket.sqlite */,
 				6A115F9219B3444F00815C2A /* newPocket-Info.plist */,
+				6A06EBF219F5255500ECE07D /* pocket.sqlite */,
 				6A115F9319B3444F00815C2A /* InfoPlist.strings */,
 				6A115F9619B3444F00815C2A /* main.m */,
 				6A115F9819B3444F00815C2A /* newPocket-Prefix.pch */,
@@ -278,12 +287,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A2985E719F51C0100C45DC6 /* cover.jpg in Resources */,
 				6A115FA119B3444F00815C2A /* Main_iPad.storyboard in Resources */,
 				6A115FA619B3444F00815C2A /* Images.xcassets in Resources */,
+				6A2985E519F516B300C45DC6 /* AppIcon.png in Resources */,
+				6A2985E319F5166900C45DC6 /* Images-2.xcassets in Resources */,
+				6A06EBF319F5255500ECE07D /* pocket.sqlite in Resources */,
 				6A115F9E19B3444F00815C2A /* Main_iPhone.storyboard in Resources */,
 				6A115F9519B3444F00815C2A /* InfoPlist.strings in Resources */,
 				DF8FB8BF19EC223A00F3154E /* Main_iPhone_4inch.storyboard in Resources */,
-				6A6369FA19B8468400BFC695 /* pocket.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

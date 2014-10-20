@@ -84,6 +84,15 @@
     }
     cell.textLabel.text = [[journeyList objectAtIndex:indexPath.row] objectForKey:@"name"];
     
+    // show cover, each cell has its own cover
+    UIImageView *media = [[UIImageView alloc]initWithFrame:CGRectMake(0, 20, 320, 180)];
+    //NSLog(@"%@", [[journeyList objectAtIndex:indexPath.row] objectForKey:@"profilepic"]);
+    //media.image = [UIImage imageWithData:[[journeyList objectAtIndex:indexPath.row] objectForKey:@"profilepic"]];
+    
+    //[cell.contentView addSubview:media];
+    
+    
+    
     return cell;
 }
 
@@ -188,6 +197,8 @@
             char *description = (char *)sqlite3_column_text(statement, 6);
             char *profilepic = (char *)sqlite3_column_text(statement, 7);
             char *traveling = (char *)sqlite3_column_text(statement, 8);
+            
+            NSLog([NSString stringWithFormat:@"%s", profilepic, nil]);
             
             journeyInfoDict = [[NSMutableDictionary alloc] init];
             [journeyInfoDict setObject:[NSString stringWithFormat:@"%s", iid, nil] forKey:@"iid"];

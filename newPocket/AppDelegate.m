@@ -59,7 +59,7 @@
     // 將資料庫檔案複製到具有寫入權限的目錄
     NSFileManager *fm = [[NSFileManager alloc] init];
     NSString *src = [[NSBundle mainBundle] pathForResource:@"pocket" ofType:@"sqlite"];
-    NSString *dst = [NSString stringWithFormat:@"%@/Documents/pocket63.sqlite", NSHomeDirectory()];
+    NSString *dst = [NSString stringWithFormat:@"%@/Documents/pocket64.sqlite", NSHomeDirectory()];
     
     // 檢查目的檔案是否存在，如果不存在則複製資料庫
     if ( ! [fm fileExistsAtPath:dst]) {
